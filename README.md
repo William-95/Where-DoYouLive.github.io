@@ -12,7 +12,7 @@
 
 ### <a name="1">About The Project</a>
 <br/>
-<img src="vite-project\public\img\screen.jpg" width="30%">
+<img src="WhereDoYouLive\public\img\screen.jpg" width="30%">
 
 <p align=right><a href="#0">back to top</a></p>
 
@@ -48,7 +48,7 @@ _[follow this link](https://where-doyoulive.netlify.app/) _
 
 William - verga.william.95@gmail.com
 
-Project Link: [https://github.com/William-95/WhereDoYouLive.github.io](https://github.com/William-95/WhereDoYouLive.github.io)
+Project Link: [https://github.com/William-95/Where-DoYouLive.github.io](https://github.com/William-95/Where-DoYouLive.github.io)
 
 <p align=right><a href="#0">back to top</a></p>
 
