@@ -1,4 +1,4 @@
-import {createCard} from './create-card.js'
+import createCard from './create-card.js'
 
 const btnSubmit = document.getElementById('submit');
 const inpRicerca = document.getElementById('ricerca');
@@ -36,6 +36,7 @@ function rem() {
 
 
 
+
 //ricerca città
 
 function getCity(inpRicerca) {
@@ -51,7 +52,7 @@ function getCity(inpRicerca) {
       
       .then(result =>  result.categories.forEach((item) => {
 
-       createCard(element='card', className='card' ,parent='ris',elementCard='card');
+        createCard(element, className ,parent, elementCard)
        
 
         
@@ -73,14 +74,14 @@ function getCity(inpRicerca) {
 
        
       .catch((err) =>{
-        console.log('Errore: '+err.message) 
-         const noCity = document.createElement("div");
+             console.log('Errore: '+err.message) 
+            const noCity = document.createElement("div");
                noCity.classList.add('nocity');
                noCity.innerText = 'Please enter the correct English city name.';
 
          const searchBar = document.querySelector('.question');
                searchBar.append(noCity);
-
+               
        })
       
        

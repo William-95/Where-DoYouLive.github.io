@@ -1,10 +1,13 @@
- export function createCard(element, className ,parent,elementCard){
-   element = document.createElement("div");
+ export function createCard(element, className ,parent, elementCard){
+
+  console.log(element+className+parent+elementCard);
+  const element =  document.createElement("div");
+
     element.classList.add({className} );
-    parent = document.getElementById({parent});
+   const parent = document.getElementById(parent);
     parent.style.display = 'flex';
     parent.appendChild({element});
-    elementCard.style.border = '3px solid' + item.color;
+   elementCard.style.border = '3px solid' + item.color;
   
     elementCard.innerHTML =
       '<br>' +
@@ -13,3 +16,4 @@
       '<h4>' + item.score_out_of_10.toFixed(1) + '/10</h4>'
 
  }
+ 
