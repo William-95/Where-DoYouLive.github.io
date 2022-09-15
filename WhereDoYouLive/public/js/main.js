@@ -1,4 +1,4 @@
-import createCard from './create-card.js'
+import  { createCard } from './create-card.js'
 
 const btnSubmit = document.getElementById('submit');
 const inpRicerca = document.getElementById('ricerca');
@@ -52,8 +52,8 @@ function getCity(inpRicerca) {
       
       .then(result =>  result.categories.forEach((item) => {
 
-        createCard(element, className ,parent, elementCard)
-       
+        createCard()
+      
 
         
            }     
