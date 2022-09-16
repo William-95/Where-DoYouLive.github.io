@@ -33,8 +33,7 @@ function rem() {
   document.getElementById("ris2").innerHTML = "";
   document.getElementById("ris3").innerHTML = "";
 }
-
-
+ 
 
 
 //ricerca città
@@ -52,7 +51,7 @@ function getCity(inpRicerca) {
       
       .then(result =>  result.categories.forEach((item) => {
 
-        createCard()
+        createCard(item,'card', 'card','ris','fixCard')
       
 
         
