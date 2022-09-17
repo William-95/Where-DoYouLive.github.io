@@ -1,6 +1,6 @@
-import  { createCard } from './create-card.js'
+import  { createBox,clearSearchBar,removeDiv } from './create-function.js'
 
-const btnSubmit = document.getElementById('submit');
+
 const inpRicerca = document.getElementById('ricerca');
 const searchBar = document.querySelector('.question');
 
@@ -14,33 +14,19 @@ searchBar.addEventListener('submit', (e) => {
 
 
 inpRicerca.addEventListener('click', (e) => {
-  om();
+  clearSearchBar();
 });
 
 
 
-//pulizia
-function om() {
-  const inpRicerca = document.getElementById('ricerca');
-  inpRicerca.value = "";
-  const noCity = document.querySelector('.nocity');
-  noCity.remove()
-}
 
-
-function rem() {
-  document.getElementById("ris").innerHTML = "";
-  document.getElementById("ris2").innerHTML = "";
-  document.getElementById("ris3").innerHTML = "";
-}
- 
 
 
 //ricerca città
 
 function getCity(inpRicerca) {
   if (inpRicerca == "") return;
-  rem();
+  removeDiv();
   var SearchValue = inpRicerca.value;
   var searchValueFont = SearchValue.replace(/ /g, "-").toLowerCase();
   var url = 'https://api.teleport.org/api/urban_areas/slug:' + searchValueFont + '/scores/'
@@ -48,22 +34,31 @@ function getCity(inpRicerca) {
   
   fetch(url)
       .then(response => response.json())
-      
-      .then(result =>  result.categories.forEach((item) => {
-
-        createCard(item,'card', 'card','ris','fixCard')
-      
-
+       
         
-           }     
-         )               
+      .then(result => 
+ 
+            //card
+          result.categories.forEach((item) => {
+            createBox('card', 'card','ris',item,'','fixCard')
+                
+            },
+
+            //summary
+            createBox('summary','summary', 'ris2','',result,'','fixSummary') ,
+
+            //score
+            createBox('score','score', 'ris3','',result,'','','fixScore')
+         )
        )
+
         //title
-        .then(cityName =>{
-          const title = document.getElementById('title');
-          title.innerText = '' + searchValueFont.toUpperCase() + '';
-            }
-        )
+     .then(cityName =>{
+        const title = document.getElementById('title');
+        title.innerText = '' + searchValueFont.toUpperCase() + '';
+          }
+      )
+        
 
         //Footer
         .then( footer=>{
@@ -73,14 +68,14 @@ function getCity(inpRicerca) {
 
        
       .catch((err) =>{
-             console.log('Errore: '+err.message) 
+             console.log('Errore: '+err.message);
             const noCity = document.createElement("div");
                noCity.classList.add('nocity');
                noCity.innerText = 'Please enter the correct English city name.';
 
          const searchBar = document.querySelector('.question');
                searchBar.append(noCity);
-               
+             
        })
       
        
@@ -96,4 +91,8 @@ function getCity(inpRicerca) {
 
 
  
-  
+  //catchErrorDocument
+window.onerror = function(msg, url, linenumber) {
+  console.log('Error message: ' + msg + '\nURL: ' + url + '\nLine Number: ' + linenumber);
+  return true;
+}
