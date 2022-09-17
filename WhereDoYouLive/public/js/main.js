@@ -24,7 +24,7 @@ inpRicerca.addEventListener('click', (e) => {
 
 //ricerca città
 
-function getCity(inpRicerca) {
+async function getCity(inpRicerca) {
   if (inpRicerca == "") return;
   removeDiv();
   var SearchValue = inpRicerca.value;
@@ -32,8 +32,16 @@ function getCity(inpRicerca) {
   var url = 'https://api.teleport.org/api/urban_areas/slug:' + searchValueFont + '/scores/'
    
   
-  fetch(url)
-      .then(response => response.json())
+  let response =await fetch(url, {
+  method: "GET",
+  headers: {"Content-type": "application/json;charset=UTF-8"}
+})
+
+
+
+
+
+      .then(response =>response.json())
        
         
       .then(result => 
@@ -85,10 +93,19 @@ function getCity(inpRicerca) {
         console.log('Close the connection.');
       }
       )
-  
     }
 
 
+    const reader = response.body.getReader();
+
+
+    while(true) {
+      const {done, value} = await reader.read();
+      if (done) {
+        break;
+      }
+      console.log(`Ricevuti ${value.length} bytes`)
+    }
 
  
   //catchErrorDocument
