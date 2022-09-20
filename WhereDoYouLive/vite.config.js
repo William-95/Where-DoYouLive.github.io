@@ -1,7 +1,12 @@
-import { defineConfig } from "vite"
-//import { resolve } from 'path'
+import { resolve } from 'path'
+import { defineConfig } from 'vite'
 
-export default defineConfig( {
-    base:'/WhereDoYouLive/',
- 
- })
+export default defineConfig({
+  build: {
+    rollupOptions: {
+      input: {
+        main:resolve(__dirname, './index.html'),       
+      }
+    }
+  }
+})
