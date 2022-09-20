@@ -4,10 +4,9 @@ import { defineConfig } from "vite"
 export default defineConfig( {
     build: {
         rollupOptions: {
-          input: {
-            'entry-point-a': path.resolve(__dirname, 'WhereDoYouLive\index.html'),
+         main:  path.resolve(__dirname, 'WhereDoYouLive\index.html'),
             
-          },
+          
         }
       },
    
