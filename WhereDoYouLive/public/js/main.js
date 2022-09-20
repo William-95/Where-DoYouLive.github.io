@@ -31,19 +31,30 @@ async function getCity(inpRicerca) {
   var searchValueFont = SearchValue.replace(/ /g, "-").toLowerCase();
   var url = 'https://api.teleport.org/api/urban_areas/slug:' + searchValueFont + '/scores/'
    
-  
-  let response =await fetch(url, {
+ 
+
+  const response=await fetch(url, {
   method: "GET",
   headers: {"Content-type": "application/json;charset=UTF-8"}
-})
+  })
+
+  //bytes load
+  const readerByte = response.body.getReader();
 
 
+  while(true) {
+    const {done, value} = await readerByte.read();
+    if (done) {
+      break;
+    }
+    console.log(`Ricevuti ${value.length} bytes`)  
 
+    return  fetch(url)
+  
 
-
-      .then(response =>response.json())
-       
-        
+    //use API
+      .then(response =>response.json() )
+         
       .then(result => 
  
             //card
@@ -61,9 +72,9 @@ async function getCity(inpRicerca) {
        )
 
         //title
-     .then(cityName =>{
-        const title = document.getElementById('title');
-        title.innerText = '' + searchValueFont.toUpperCase() + '';
+     .then(title =>{
+        const titleCityName = document.getElementById('title');
+        titleCityName.innerText = '' + searchValueFont.toUpperCase() + '';
           }
       )
         
@@ -86,27 +97,16 @@ async function getCity(inpRicerca) {
              
        })
       
-       
-
-   
-      .finally(() => {
+       .finally(() => {
         console.log('Close the connection.');
       }
       )
+     
+  } 
     }
-
-
-    const reader = response.body.getReader();
-
-
-    while(true) {
-      const {done, value} = await reader.read();
-      if (done) {
-        break;
-      }
-      console.log(`Ricevuti ${value.length} bytes`)
-    }
-
+    
+  
+   
  
   //catchErrorDocument
 window.onerror = function(msg, url, linenumber) {
