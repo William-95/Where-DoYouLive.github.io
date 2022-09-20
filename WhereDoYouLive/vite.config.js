@@ -1,4 +1,4 @@
 export default {
-    base:'/Where-DoYouLive.github.io/',
+    base:'/Where-DoYouLive.github.io',
   
  }
