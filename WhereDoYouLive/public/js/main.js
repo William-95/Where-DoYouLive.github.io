@@ -28,8 +28,7 @@ async function getCity(inpRicerca) {
   if (inpRicerca == "") return;
   removeDiv();
   var searchValue = inpRicerca.value;
-  var searchAuto=searchValue.textContent;
-  var searchValueFont = searchAuto.replace(/ /g, "-",/ /g).toLowerCase();
+  var searchValueFont = searchValue.replace(/ /g, "-",/ /g).toLowerCase();
   var url = 'https://api.teleport.org/api/urban_areas/slug:' + searchValueFont + '/scores/'
    
  
