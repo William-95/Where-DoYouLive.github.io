@@ -3,7 +3,7 @@ export default {
     build: {
         rollupOptions: {
           input: {
-            main: resolve(__WhereDoYouLive, 'index.html'),
+            main:(__WhereDoYouLive, 'index.html'),
           }
         }
       }
