@@ -3,6 +3,6 @@ import { resolve } from 'path'
 
 export default defineConfig( {
     entry: resolve(__dirname, 'WhereDoYouLive/index.html'),
-   base:'/',
+   base:'/WhereDoYouLive/',
   
  })
