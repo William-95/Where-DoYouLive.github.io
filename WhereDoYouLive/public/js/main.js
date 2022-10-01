@@ -6,7 +6,7 @@ const searchBar = document.getElementById('question');
 
 
 //eventRicerca
-inpRicerca.addEventListener('change',updateValue);
+//inpRicerca.addEventListener('change',updateValue);
 
 searchBar.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -96,7 +96,7 @@ async function getCity(inpRicerca) {
                noCity.classList.add('nocity');
                noCity.innerText = 'Please enter the correct English city name.';
 
-         const searchBar = document.querySelector('.question');
+         const searchBar = document.getElementById('question');
                searchBar.append(noCity);
              
        })
