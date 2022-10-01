@@ -40,3 +40,8 @@ export function removeDiv() {
   document.getElementById("ris3").innerHTML = "";
 }
  
+
+//search bar Value
+export function updateValue(e){
+  searchBar.value= e.target.value
+}

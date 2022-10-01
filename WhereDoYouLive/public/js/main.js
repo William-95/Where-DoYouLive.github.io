@@ -1,4 +1,4 @@
-import  { createBox,clearSearchBar,removeDiv } from './create-function.js'
+import  { createBox,clearSearchBar,updateValue,removeDiv } from './create-function.js'
 
 
 const inpRicerca = document.getElementById('ricerca');
@@ -16,6 +16,8 @@ searchBar.addEventListener('submit', (e) => {
 inpRicerca.addEventListener('click', (e) => {
   clearSearchBar();
 });
+
+inpRicerca.addEventListener('change',updateValue);
 
 
 
