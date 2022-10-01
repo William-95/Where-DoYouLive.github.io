@@ -6,7 +6,9 @@ const searchBar = document.getElementById('question');
 
 
 //eventRicerca
-//inpRicerca.addEventListener('change',updateValue);
+inpRicerca.addEventListener('change', (e)=>{
+  e.target.value;
+});
 
 searchBar.addEventListener('submit', (e) => {
   e.preventDefault();
