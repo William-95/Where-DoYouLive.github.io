@@ -17,7 +17,7 @@ inpRicerca.addEventListener('click', (e) => {
   clearSearchBar();
 });
 
-inpRicerca.addEventListener('change',updateValue);
+searchBar.addEventListener('change',updateValue);
 
 
 
