@@ -9,6 +9,7 @@ const searchBar = document.querySelector('.question');
 
 searchBar.addEventListener('submit', (e) => {
   e.preventDefault();
+  e.target.value;
   getCity(inpRicerca);
 });
 
@@ -17,7 +18,7 @@ inpRicerca.addEventListener('click', (e) => {
   clearSearchBar();
 });
 
-searchBar.addEventListener('change',updateValue);
+//searchBar.addEventListener('change',updateValue);
 
 
 

@@ -42,6 +42,6 @@ export function removeDiv() {
  
 
 //search bar Value
-export function updateValue(e){
-  inpRicerca.value= searchBar.textContent//e.target.value
-}
+//export function updateValue(e){
+//  inpRicerca.value=e.target.value
+//}
