@@ -2,7 +2,7 @@ import  { createBox,clearSearchBar,updateValue,removeDiv } from './create-functi
 
 
 const inpRicerca = document.getElementById('ricerca');
-const searchBar = document.querySelector('.question');
+const searchBar = document.getElementById('question');
 
 
 //eventRicerca

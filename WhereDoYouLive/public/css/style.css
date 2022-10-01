@@ -30,7 +30,7 @@ h2 {
   margin: 2rem;
 }
 
-.question {
+#question {
   height: 40px;
   position: relative;
   top: 23%;
