@@ -1,4 +1,4 @@
-import  { createBox,clearSearchBar,updateValue,removeDiv } from './create-function.js'
+import  { createBox,clearSearchBar,removeDiv } from './create-function.js'
 
 
 const inpRicerca = document.getElementById('ricerca');
