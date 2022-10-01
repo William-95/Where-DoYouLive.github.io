@@ -6,13 +6,9 @@ const searchBar = document.getElementById('question');
 
 
 //eventRicerca
-inpRicerca.addEventListener('change', (e)=>{
-  e.target.value;
-});
 
 searchBar.addEventListener('submit', (e) => {
   e.preventDefault();
-  
   getCity(inpRicerca);
 });
 
@@ -20,9 +16,6 @@ searchBar.addEventListener('submit', (e) => {
 inpRicerca.addEventListener('click', (e) => {
   clearSearchBar();
 });
-
-
-
 
 
 
@@ -37,7 +30,7 @@ async function getCity(inpRicerca) {
   var searchValueFont = searchValue.replace(/ /g, "-",/ /g).toLowerCase();
   var url = 'https://api.teleport.org/api/urban_areas/slug:' + searchValueFont + '/scores/'
    
- console.log(searchValueFont);
+ 
 
   const response=await fetch(url, {
   method: "GET",
