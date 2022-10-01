@@ -55,7 +55,6 @@ h2 {
   margin: 0 0 0 10px;
 }
 
-
 #question #submit {
   position: relative;
   top: 0.4px;
@@ -66,12 +65,10 @@ h2 {
   width: 35px;
   border-radius: 50%;
   background-color: #536179;
-   color:white;
-   
+  color: white;
 }
 
 .nocity {
-  
   border: 2px solid red;
   border-radius: 25px;
   text-align: center;

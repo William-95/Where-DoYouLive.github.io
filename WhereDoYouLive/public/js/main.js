@@ -1,4 +1,8 @@
-import  { createBox,clearSearchBar,removeDiv } from './create-function.js'
+import {
+  createBox,
+  clearSearchBar,
+  removeDiv
+} from './create-function.js'
 
 
 const inpRicerca = document.getElementById('ricerca');
@@ -27,87 +31,90 @@ async function getCity(inpRicerca) {
   if (inpRicerca == "") return;
   removeDiv();
   var searchValue = inpRicerca.value;
-  var searchValueFont = searchValue.replace(/ /g, "-",/ /g).toLowerCase();
+  var searchValueFont = searchValue.replace(/ /g, "-", / /g).toLowerCase();
   var url = 'https://api.teleport.org/api/urban_areas/slug:' + searchValueFont + '/scores/'
-   
- 
 
-  const response=await fetch(url, {
-  method: "GET",
-  headers: {"Content-type": "application/json;charset=UTF-8"}
+
+
+  const response = await fetch(url, {
+    method: "GET",
+    headers: {
+      "Content-type": "application/json;charset=UTF-8"
+    }
   })
 
   //bytes load
   const readerByte = response.body.getReader();
 
 
-  while(true) {
-    const {done, value} = await readerByte.read();
+  while (true) {
+    const {
+      done,
+      value
+    } = await readerByte.read();
     if (done) {
       break;
     }
-    console.log(`Ricevuti ${value.length} bytes`)  
+    console.log(`Ricevuti ${value.length} bytes`)
 
-    return  fetch(url)
-  
+    return fetch(url)
 
-    //use API
-      .then(response =>response.json() )
-         
-      .then(result => 
- 
-            //card
-          result.categories.forEach((item) => {
-            createBox('card', 'card','ris',item,'','fixCard')
-                
-            },
 
-            //summary
-            createBox('summary','summary', 'ris2','',result,'','fixSummary') ,
+      //use API
+      .then(response => response.json())
 
-            //score
-            createBox('score','score', 'ris3','',result,'','','fixScore')
-         )
-       )
+      .then(result =>
 
-        //title
-     .then(title =>{
+        //card
+        result.categories.forEach((item) => {
+            createBox('card', 'card', 'ris', item, '', 'fixCard')
+
+          },
+
+          //summary
+          createBox('summary', 'summary', 'ris2', '', result, '', 'fixSummary'),
+
+          //score
+          createBox('score', 'score', 'ris3', '', result, '', '', 'fixScore')
+        )
+      )
+
+      //title
+      .then(title => {
         const titleCityName = document.getElementById('title');
         titleCityName.innerText = '' + searchValueFont.toUpperCase() + '';
-          }
-      )
-        
+      })
 
-        //Footer
-        .then( footer=>{
-          const footerPage = document.getElementById('footer');
-               footerPage.style.position = 'relative';
-        })
 
-       
-      .catch((err) =>{
-             console.log('Errore: '+err.message);
-            const noCity = document.createElement("div");
-               noCity.classList.add('nocity');
-               noCity.innerText = 'Please enter the correct English city name.';
+      //Footer
+      .then(footer => {
+        const footerPage = document.getElementById('footer');
+        footerPage.style.position = 'relative';
+      })
 
-         const searchBar = document.getElementById('question');
-               searchBar.append(noCity);
-             
-       })
-      
-       .finally(() => {
+
+      .catch((err) => {
+        console.log('Errore: ' + err.message);
+        const noCity = document.createElement("div");
+        noCity.classList.add('nocity');
+        noCity.innerText = 'Please enter the correct English city name.';
+
+        const searchBar = document.getElementById('question');
+        searchBar.append(noCity);
+
+      })
+
+      .finally(() => {
         console.log('Close the connection.');
-      }
-      )
-     
-  } 
-    }
-    
-  
-   
- 
-  //catchErrorDocument
+      })
+
+  }
+}
+
+
+
+
+//catchErrorDocument
 window.onerror = function(msg, url, linenumber) {
   console.log('Error message: ' + msg + '\nURL: ' + url + '\nLine Number: ' + linenumber);
   return true;
