@@ -37,7 +37,7 @@ async function getCity(inpRicerca) {
   var searchValueFont = searchValue.replace(/ /g, "-",/ /g).toLowerCase();
   var url = 'https://api.teleport.org/api/urban_areas/slug:' + searchValueFont + '/scores/'
    
- 
+ console.log(searchValueFont);
 
   const response=await fetch(url, {
   method: "GET",
